@@ -10,6 +10,8 @@ import QuizBackground from '../src/components/QuizBackground';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 
+import Quiz from './quiz';
+
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
 //   flex: 1;
@@ -36,6 +38,7 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <Head>
         <title>AluraQuiz - Modelo Base</title>
+        <meta property="og:image" content={db.bg}/>
       </Head>
       <QuizContainer>
         <QuizLogo />
@@ -61,7 +64,6 @@ export default function Home() {
               />
               <button type="submit" disabled={name.length === 0}>
                 Jogar
-                {name}
               </button>
             </form>
           </Widget.Content>
