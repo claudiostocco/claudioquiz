@@ -6,7 +6,8 @@ import Footer from '../src/components/Footer';
 import QuizContainer from '../src/components/QuizContainer';
 
 function Quiz() {
-    const name = window.location.search.split('=')[1]
+    // const name = window.location.search.split('=')[1]
+    const name = 'Claudio'
 
     return (
       <QuizContainer>
