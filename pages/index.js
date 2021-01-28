@@ -2,19 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-// import db from '../db.json';
+import db from '../db.json';
+import QuizBackground from '../src/components/QuizBackground';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
 import Footer from '../src/components/Footer';
 import Input from '../src/components/Input'
 import Button from '../src/components/Button'
-
-// const BackgroundImage = styled.div`
-//   background-image: url(${db.bg});
-//   flex: 1;
-//   background-size: cover;
-//   background-position: center;
-// `;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -32,6 +26,7 @@ export default function Home() {
   const [name, setName] = React.useState('');
 
   return (
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
         <Widget>
@@ -67,5 +62,6 @@ export default function Home() {
         </Widget>
         <Footer />
       </QuizContainer>
+    </QuizBackground>
   );
 }
