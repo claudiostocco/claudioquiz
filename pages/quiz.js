@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import styled from 'styled-components'
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
@@ -7,6 +8,12 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import AlternativesForm from '../src/components/AlternativesForm';
 import Button from '../src/components/Button';
+
+const CaixaFlex = styled.div`
+                    display: "flex";
+                    justify-content: "between_space";
+                  `;
+
 
 function ResultWidget({ results, name }) {
   return (
@@ -155,6 +162,7 @@ const screenStates = {
   QUIZ: 'QUIZ',
   LOADING: 'LOADING',
   RESULT: 'RESULT',
+  VAZIO: 'VAZIO'
 };
 export default function QuizPage() {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
@@ -212,6 +220,19 @@ export default function QuizPage() {
         {screenState === screenStates.LOADING && <LoadingWidget name={name} />}
 
         {screenState === screenStates.RESULT && <ResultWidget results={results} name={name} />}
+
+        <Widget>
+          <Widget.Content>
+            <CaixaFlex>
+              <button onClick={() => setScreenState(screenStates.QUIZ)}>QUIZ</button>
+              {' '}
+              <button onClick={() => setScreenState(screenStates.LOADING)}>LOADING</button>
+              {' '}
+              <button onClick={() => setScreenState(screenStates.RESULT)}>RESULT</button>
+            </CaixaFlex>
+          </Widget.Content>  
+        </Widget>  
+
       </QuizContainer>
     </QuizBackground>
   );
