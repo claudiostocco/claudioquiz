@@ -8,7 +8,7 @@ import QuizContainer from '../src/components/QuizContainer';
 import AlternativesForm from '../src/components/AlternativesForm';
 import Button from '../src/components/Button';
 
-function ResultWidget({ results }) {
+function ResultWidget({ results, name }) {
   return (
     <Widget>
       <Widget.Header>
@@ -17,7 +17,7 @@ function ResultWidget({ results }) {
 
       <Widget.Content>
         <p>
-          Você acertou
+          Pontuação para {name}:
           {' '}
           {/* {results.reduce((somatoriaAtual, resultAtual) => {
             const isAcerto = resultAtual === true;
@@ -211,7 +211,7 @@ export default function QuizPage() {
 
         {screenState === screenStates.LOADING && <LoadingWidget name={name} />}
 
-        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
+        {screenState === screenStates.RESULT && <ResultWidget results={results} name={name} />}
       </QuizContainer>
     </QuizBackground>
   );
