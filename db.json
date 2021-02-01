@@ -1,7 +1,8 @@
 {
   "bg0": "https://wallpapercave.com/wp/wp2533054.jpg",
   "bg1": "https://wallpapercave.com/wp/wp2533041.jpg",
-  "bg": "https://wallpapercave.com/wp/wp2533044.jpg",
+  "bg2": "https://wallpapercave.com/wp/wp2533044.jpg",
+  "bg": "./images/teste-bg--1024x576.png",
   "title": "Quiz da Alura",
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
@@ -29,7 +30,9 @@
     }
   ],
   "external": [
-    ""
+    "https://aluraquiz-base.alura-challenges.vercel.app/",
+    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
   ],
   "theme": {
     "colors": {

@@ -1,17 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components'
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import AlternativesForm from '../src/components/AlternativesForm';
-import Button from '../src/components/Button';
+import db from '../../../db.json';
+import Widget from '../Widget';
+import QuizLogo from '../QuizLogo';
+import QuizBackground from '../QuizBackground';
+import QuizContainer from '../QuizContainer';
+import AlternativesForm from '../AlternativesForm';
+import Button from '../Button';
+import BackLinkArrow from '../BackLinkArrow';
 
 const CaixaFlex = styled.div`
-                    display: "flex";
-                    justify-content: "between_space";
+                    display: flex;
+                    justify-content: space-between;
+                    margin: auto;
+                    width: 250px;
                   `;
 
 
@@ -85,7 +88,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -164,13 +167,13 @@ const screenStates = {
   RESULT: 'RESULT',
   VAZIO: 'VAZIO'
 };
-export default function QuizPage() {
+export default function QuizPage({questions}) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
-  const totalQuestions = db.questions.length;
+  const totalQuestions = questions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
+  const question = questions[questionIndex];
   const [name,setName] = React.useState('');
 
   function addResult(result) {
@@ -225,9 +228,7 @@ export default function QuizPage() {
           <Widget.Content>
             <CaixaFlex>
               <button onClick={() => setScreenState(screenStates.QUIZ)}>QUIZ</button>
-              {' '}
               <button onClick={() => setScreenState(screenStates.LOADING)}>LOADING</button>
-              {' '}
               <button onClick={() => setScreenState(screenStates.RESULT)}>RESULT</button>
             </CaixaFlex>
           </Widget.Content>  
